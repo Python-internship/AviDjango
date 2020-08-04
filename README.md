@@ -85,7 +85,7 @@ maximum available price.
 Request allows to work with image of ad: add image, 
 update image, delete image
 
-**URL:** api/ad/id/image/id/command/?image_url=value
+**URL:** api/ad/id/image/command/?image_url=value
 
 id - required parameter - ID of the requested ad (digit)
 
