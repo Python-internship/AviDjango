@@ -16,7 +16,7 @@ class Ad(models.Model):
     full_descr = models.CharField(max_length=500)
     views_cnt = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True)
+    updated_at = models.DateTimeField(auto_now=True)
     photo = models.CharField(max_length=500, null=True)
     price = models.IntegerField(null=False, default=0)
     tag = models.ManyToManyField(Tag)
@@ -26,6 +26,3 @@ class Ad(models.Model):
 
     def update_photo(self, photo_path):
         self.photo = photo_path
-
-    def edit_time_update(self):
-        self.updated_at = datetime.now()

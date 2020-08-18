@@ -61,7 +61,6 @@ class AdFullDescrView(generics.RetrieveUpdateAPIView):
         partial = kwargs.get("partial", False)
 
         instance = self.get_object()
-        instance.edit_time_update()
 
         serializer = AdUpdateSerializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
@@ -182,7 +181,6 @@ class AdImageHandlerView(generics.UpdateAPIView):
             if instance.photo:  # check if image data exist, then delete
                 os.remove(instance.photo)
             instance.update_photo(image_path)
-            instance.edit_time_update()
 
             # sending new image info to serializer
             serializer = self.get_serializer(
